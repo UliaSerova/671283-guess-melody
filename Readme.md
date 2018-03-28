@@ -1,7 +1,7 @@
 # Личный проект «Угадай мелодию» [![Build status][travis-image]][travis-url]
 
 * Студент: [Юлия Серова](https://up.htmlacademy.ru/ecmascript/4/user/671283).
-* Наставник: `Неизвестно`.
+* Наставник: `Артем Черкасов`.
 
 ---
 
