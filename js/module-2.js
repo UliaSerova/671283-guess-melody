@@ -1,6 +1,7 @@
 import getElementFromTemplate from "./renderer.js";
 import showSection from "./switch-between.js";
 import moduleTreeElement from "./module-3.js";
+import {addHendlerTree} from "./module-3.js";
 
 const moduleTwoElement = getElementFromTemplate(`<template>
 <section class="main main--level main--level-artist">
@@ -67,6 +68,7 @@ const moduleTwoElement = getElementFromTemplate(`<template>
 export const addHendlerTwo = function () {
   document.querySelector(`.main-list`).addEventListener(`click`, function () {
     showSection(moduleTreeElement);
+    addHendlerTree();
   });
 }
 

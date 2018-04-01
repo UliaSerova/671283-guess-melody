@@ -15,10 +15,13 @@ const moduleOneElement = getElementFromTemplate(`<template><section class="main 
 
 document.querySelector(`.main`).appendChild(moduleOneElement[0].content.cloneNode(true).children[0]);
 
-document.querySelector(`button.main-play`).addEventListener(`click`, function () {
-  showSection(moduleTwoElement);
-  addHendlerTwo();
-});
+export const addHendlerFirst = function () {
+  document.querySelector(`button.main-play`).addEventListener(`click`, function () {
+    showSection(moduleTwoElement);
+    addHendlerTwo();
+  });
+}
+addHendlerFirst();
 export {moduleOneElement};
 
 

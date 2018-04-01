@@ -1,6 +1,7 @@
 import getElementFromTemplate from "./renderer.js";
 import showSection from "./switch-between.js";
-import {moduleFourElement} from "./module-4.js";
+import {addHendlerFour, moduleFourElement} from "./module-4.js";
+import {addHendlerFive, moduleFiveElement} from "./module-5.js";
 
 const moduleThreeElement = getElementFromTemplate(` <template>
  <section class="main main--level main--level-genre">
@@ -87,9 +88,33 @@ const moduleThreeElement = getElementFromTemplate(` <template>
   </section>
 </template>`);
 
-export function addHendlerTree() {
-  document.querySelector(`.main-list`).addEventListener(`click`, function () {
-    showSection(moduleFourElement);
+function toggleBtnAnswer() {
+  const btn = document.querySelector(`.genre-answer-send`);
+  btn.disabled = true;
+  document.querySelector(`.genre`).addEventListener(`click`, function () {
+    btn.disabled = true;
+    document.getElementsByName(`answer`).forEach(function (el) {
+      if (el.checked) {
+        btn.disabled = false;
+      }
+    });
+  });
+}
+function randomAnsver() {
+  const a = Math.random();
+  const b = Math.random();
+  return a < b;
+}
+export const addHendlerTree = function () {
+  toggleBtnAnswer();
+  document.querySelector(`.genre-answer-send`).addEventListener(`click`, function () {
+    if (randomAnsver()) {
+      showSection(moduleFourElement);
+      addHendlerFour();
+    } else {
+      showSection(moduleFiveElement);
+      addHendlerFive();
+    }
   });
 }
 
