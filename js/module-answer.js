@@ -1,10 +1,9 @@
 import getElementFromTemplate from "./renderer.js";
 import showSection from "./switch-between.js";
-import {addHendlerFour, moduleFourElement} from "./module-4.js";
-import {addHendlerFive, moduleFiveElement} from "./module-5.js";
+import {addHandlerWin, moduleWinElement} from "./module-win.js";
+import {addHandlerLose, moduleLoseElement} from "./module-lose.js";
 
-const moduleThreeElement = getElementFromTemplate(` <template>
- <section class="main main--level main--level-genre">
+const moduleAnswerElement = getElementFromTemplate(`<section class="main main--level main--level-genre">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
         cx="390" cy="390" r="370"
@@ -85,8 +84,7 @@ const moduleThreeElement = getElementFromTemplate(` <template>
         <button class="genre-answer-send" type="submit">Ответить</button>
       </form>
     </div>
-  </section>
-</template>`);
+  </section>`);
 
 function toggleBtnAnswer() {
   const btn = document.querySelector(`.genre-answer-send`);
@@ -101,23 +99,19 @@ function toggleBtnAnswer() {
   });
 }
 function randomAnsver() {
-  const a = Math.random();
-  const b = Math.random();
-  return a < b;
+  return Math.random < 0.5;
 }
-export const addHendlerTree = function () {
+export const addHandlerAnswer = function () {
   toggleBtnAnswer();
   document.querySelector(`.genre-answer-send`).addEventListener(`click`, function () {
     if (randomAnsver()) {
-      showSection(moduleFourElement);
-      addHendlerFour();
+      showSection(moduleWinElement, addHandlerWin);
     } else {
-      showSection(moduleFiveElement);
-      addHendlerFive();
+      showSection(moduleLoseElement, addHandlerLose);
     }
   });
-}
+};
 
-export default moduleThreeElement;
+export default moduleAnswerElement;
 
 

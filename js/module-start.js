@@ -1,8 +1,8 @@
 import getElementFromTemplate from "./renderer.js";
 import showSection from "./switch-between.js";
-import {addHendlerTwo, moduleTwoElement} from "./module-2.js";
+import {addHandlerQuestions, moduleQuestionsElement} from "./module-questions.js";
 
-const moduleOneElement = getElementFromTemplate(`<template><section class="main main--welcome">
+const moduleStartElement = getElementFromTemplate(`<section class="main main--welcome">
                <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
                <button class="main-play">Начать игру</button>
                <h2 class="title main-title">Правила игры</h2>
@@ -11,17 +11,17 @@ const moduleOneElement = getElementFromTemplate(`<template><section class="main 
                 Ошибиться можно 3 раза.<br>
                 Удачи!
                </p>
-             </section></template>`);
+             </section>`);
 
-document.querySelector(`.main`).appendChild(moduleOneElement[0].content.cloneNode(true).children[0]);
 
-export const addHendlerFirst = function () {
+document.querySelector(`.main`).appendChild(moduleStartElement[0]);
+
+export const addHandlerStart = function () {
   document.querySelector(`button.main-play`).addEventListener(`click`, function () {
-    showSection(moduleTwoElement);
-    addHendlerTwo();
+    showSection(moduleQuestionsElement, addHandlerQuestions);
   });
-}
-addHendlerFirst();
-export {moduleOneElement};
+};
+addHandlerStart();
+export {moduleStartElement};
 
 

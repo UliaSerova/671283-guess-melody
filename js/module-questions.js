@@ -1,10 +1,9 @@
 import getElementFromTemplate from "./renderer.js";
 import showSection from "./switch-between.js";
-import moduleTreeElement from "./module-3.js";
-import {addHendlerTree} from "./module-3.js";
+import moduleAnswerElement from "./module-answer.js";
+import {addHandlerAnswer} from "./module-answer.js";
 
-const moduleTwoElement = getElementFromTemplate(`<template>
-<section class="main main--level main--level-artist">
+const moduleQuestionsElement = getElementFromTemplate(`<section class="main main--level main--level-artist">
     <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
       <circle
         cx="390" cy="390" r="370"
@@ -62,16 +61,14 @@ const moduleTwoElement = getElementFromTemplate(`<template>
         </div>
       </form>
     </div>
-  </section>
-</template>`);
+  </section>`);
 
-export const addHendlerTwo = function () {
+export const addHandlerQuestions = function () {
   document.querySelector(`.main-list`).addEventListener(`click`, function () {
-    showSection(moduleTreeElement);
-    addHendlerTree();
+    showSection(moduleAnswerElement, addHandlerAnswer);
   });
-}
+};
 
 
-export {moduleTwoElement};
+export {moduleQuestionsElement};
 
