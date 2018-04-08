@@ -13,15 +13,12 @@ const moduleStartElement = getElementFromTemplate(`<section class="main main--we
                </p>
              </section>`);
 
-
-document.querySelector(`.main`).appendChild(moduleStartElement[0]);
-
 export const addHandlerStart = function () {
   document.querySelector(`button.main-play`).addEventListener(`click`, function () {
     showSection(moduleQuestionsElement, addHandlerQuestions);
   });
 };
-addHandlerStart();
+
 export {moduleStartElement};
 
 
